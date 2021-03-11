@@ -1,8 +1,10 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const stripe = require('stripe')('sk_test_51I1pGZGItSYZHOzZy6lJMT4QQbmJ2Oj10Q5ZPhhcoYhPgn0zX4IjGlcrpIQsz4PANnTeHpFwneuBCLDQUIGID0cU00CCASV4VU');
+const bodyParser =  require('body-parser');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
