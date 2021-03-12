@@ -1,9 +1,13 @@
+
+
 const createError = require('http-errors');
 const express = require('express');
+
+const keys = require('./config/keys');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const stripe = require('stripe')('sk_test_51I1pGZGItSYZHOzZy6lJMT4QQbmJ2Oj10Q5ZPhhcoYhPgn0zX4IjGlcrpIQsz4PANnTeHpFwneuBCLDQUIGID0cU00CCASV4VU');
+const stripe = require('stripe')(keys.stripeSecretKey);
 const bodyParser =  require('body-parser');
 const exphbs = require('express-handlebars');
 

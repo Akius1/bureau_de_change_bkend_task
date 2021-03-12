@@ -1,5 +1,6 @@
 const express = require('express');
-const { default: Stripe } = require('stripe');
+const keys = require('../config/keys');
+const stripe = require('stripe')(keys.stripeSecretKey);
 const router = express.Router();
 
 /* GET home page. */
