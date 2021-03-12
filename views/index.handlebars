@@ -5,7 +5,7 @@
                 <p class="lead"> Payment Detail</p>
             </div>
 
-            <form>
+            <form action="/charge" method="POST">
                 <div class="mb-3">
                     <label for="exampleInputName" class="form-label">Full Name</label>
                     <input type="text" class="form-control" id="exampleInputName" aria-describedby="nameHelp">
@@ -18,41 +18,40 @@
                 <div class="mb-3">
                     <h4>Currency Converter</h3>
 
-                    <div>
-                        <input class="converter-input" type="number" >
-                        <select>
-                            {{!-- <option value="currency">Currency</option> --}}
-                        </select>
-                    </div>
+                        <div>
+                            <input class="converter-input" type="number" step=".01">
+                            <select>
+                                {{!-- <option value="currency">Currency</option> --}}
+                            </select>
+                        </div>
                         <span> = </span>
-                     <div>
-                        <input class="converter-input" type="number"  >
-                        <select>
-                            {{!-- <option value="currency">Currency</option> --}}
-                        </select>
-                    </div>
-                    
+                        <div>
+                            <input class="converter-input" type="number" step=".01">
+                            <select>
+                                {{!-- <option value="currency">Currency</option> --}}
+                            </select>
+                        </div>
+
                 </div>
                 <div class="mb-3 form-check">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
                     <label class="form-check-label" for="exampleCheck1">Check me out</label>
                 </div>
-                <button type="button" id="checkout-button" class="btn btn-primary">Make Payment</button>
+
+                <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-key="pk_test_51I1pGZGItSYZHOzZ68Hfz1PuieZ3XZ96giIrlza7zdMRgCXEGtpyGmT46vEICK7ZwBqScPRlmbkLr3OXlMFDqUII007X9DH9TO"
+                    data-amount="" data-name="Andrew Urom" data-description="Bureu de Change"
+                    data-image="https://stripe.com/img/documentation/checkout/marketplace.png" data-locale="auto">
+                    </script>
+                <script>
+                    document.getElementsByClassName('stripe-button-el')[0].style.display = 'none';
+                </script>
+                <button type="submit" id="checkout-button" class="btn btn-primary">Make Payment</button>
             </form>
 
-            <form action="/charge" method="POST">
-            <script
-            src="https://checkout.stripe.com/checkout.js"
-            class="stripe-button"
-            data-key="pk_test_51I1pGZGItSYZHOzZ68Hfz1PuieZ3XZ96giIrlza7zdMRgCXEGtpyGmT46vEICK7ZwBqScPRlmbkLr3OXlMFDqUII007X9DH9TO"
-            data-amount =""
-            data-name="Andrew Urom"
-            data-description="Bureu de Change"
-            data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-            data-locale="auto"
-            >
-            </script>
-            </form>
+            {{!-- <form action="/charge" method="POST">
+
+            </form> --}}
         </div>
     </div>
 </section>

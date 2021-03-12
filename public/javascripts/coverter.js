@@ -19,7 +19,7 @@ async function currency(){
     };
 
     const convert = (i, j) =>{
-        input[i].value = input[j].value * rates[select[i].value] / rates[select[j].value] ;
+        input[i].value = (input[j].value * rates[select[i].value] / rates[select[j].value]).toFixed(2) ;
     }
 
     input[0].addEventListener('keyup', ()=> convert(1, 0));

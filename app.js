@@ -9,6 +9,7 @@ const exphbs = require('express-handlebars');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const chargeRouter = require('./routes/charge');
 
 var app = express();
 
@@ -27,9 +28,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //Index Route
-app.get('/', (req, res) =>{
-  res.render('index');
-})
+// app.get('/', (req, res) =>{
+//   res.render('index');
+// })
 
 
 
@@ -37,6 +38,7 @@ app.get('/', (req, res) =>{
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/charge', chargeRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
