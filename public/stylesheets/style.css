@@ -1,8 +1,37 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  width: 100%;
+  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+}
+
+h4{
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+input,
+select{
+  width: 250px;
+  height: 30px;
+  border: 1px solid lightblue;
+  outline: none;
+}
+select{
+  width: 100px;
+  letter-spacing: 2px;
+}
+span{
+  color: crimson;
+  font-size: 2em;
+  font-weight: 900;
 }

@@ -1,1 +1,58 @@
-hello index
+<section class="py-3">
+    <div class="row">
+        <div class="wrapper">
+            <div class="detail-container">
+                <p class="lead"> Payment Detail</p>
+            </div>
+
+            <form>
+                <div class="mb-3">
+                    <label for="exampleInputName" class="form-label">Full Name</label>
+                    <input type="text" class="form-control" id="exampleInputName" aria-describedby="nameHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputAccount" class="form-label">Account Number</label>
+                    <input type="number" class="form-control" id="exampleInputAccount" aria-describedby="accountHelp">
+                    <div id="emailHelp" class="form-text">We'll never share your account detail with anyone else.</div>
+                </div>
+                <div class="mb-3">
+                    <h4>Currency Converter</h3>
+
+                    <div>
+                        <input class="converter-input" type="number" >
+                        <select>
+                            {{!-- <option value="currency">Currency</option> --}}
+                        </select>
+                    </div>
+                        <span> = </span>
+                     <div>
+                        <input class="converter-input" type="number"  >
+                        <select>
+                            {{!-- <option value="currency">Currency</option> --}}
+                        </select>
+                    </div>
+                    
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div>
+                <button type="button" id="checkout-button" class="btn btn-primary">Make Payment</button>
+            </form>
+
+            <form action="/charge" method="POST">
+            <script
+            src="https://checkout.stripe.com/checkout.js"
+            class="stripe-button"
+            data-key="pk_test_51I1pGZGItSYZHOzZ68Hfz1PuieZ3XZ96giIrlza7zdMRgCXEGtpyGmT46vEICK7ZwBqScPRlmbkLr3OXlMFDqUII007X9DH9TO"
+            data-amount =""
+            data-name="Andrew Urom"
+            data-description="Bureu de Change"
+            data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+            data-locale="auto"
+            >
+            </script>
+            </form>
+        </div>
+    </div>
+</section>
