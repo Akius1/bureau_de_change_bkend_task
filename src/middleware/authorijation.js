@@ -21,12 +21,7 @@ async function authorization(req, res, next) {
       }
     });
   } catch (error) {
-    res.status(400).json({
-      data: {
-        result: "",
-        error: error,
-      },
-    });
+    res.render('login')
   }
 }
 

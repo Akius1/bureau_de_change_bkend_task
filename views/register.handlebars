@@ -2,12 +2,42 @@
 <div class="login-page">
   <div class="form">
     <form class="register-form">
-      <input type="text" placeholder="name"/>
-      <input type="password" placeholder="password"/>
-      <input type="text" placeholder="email address"/>
-      <button>create</button>
+      <input type="text" id="name" class="name" placeholder="name"/>
+      <input type="password" class="password" placeholder="password"/>
+      <input type="text" class="email" placeholder="email address"/>
+      <button id="button" href="/">create</button>
       <p class="message">Already registered? <a href="/login">Sign In</a></p>
     </form>
   </div>
+<script>
+  const username = document.querySelector('.name');
+  
+  const userpassword = document.querySelector('.password');
+  const useremail = document.querySelector('.email');
+  const button =document.getElementById('button')
 
+
+//add submit event
+      button.addEventListener("click", (e) => {
+        //Get details
+        let name = username.value;
+        let email = useremail.value;
+        let password = userpassword.value;
+        fetch(
+          "http://localhost:3000/register",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            redirect: "follow",
+            body: JSON.stringify({
+              name,
+              password,
+              email,
+            }),
+          },
+        );
+      });
+</script>
 </section>

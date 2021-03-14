@@ -16,24 +16,6 @@ async function loginUser(body, callback) {
     callback(error.details[0].message, null);
   }
 
-  // const inputPath = path.join(__dirname, `../data.json`);
-  // console.log(__dirname);
-  // fs.readFile(inputPath, "utf8", (err, data) => {
-  //   if (err) return callback(err,null);
-
-  //   let newData = JSON.parse(data);
-
-  //   let response = newData.filter((val) => {
-  //     return val.email === value.email;
-  //   });
-  //   if (response.length < 1) {
-  //     return callback("please enter a valid user", null);
-  //   }
-
-  //   let token = createToken(response[0].email, response[0].name);
-  //   callback(null, token);
-  // });
-
   return await User.find({ email: value.email })
     .exec()
     .then(async (data) => {

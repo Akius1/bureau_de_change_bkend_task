@@ -36,13 +36,6 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-//Index Route
-// app.get('/', (req, res) =>{
-//   res.render('index');
-// })
-
-
-
 
 
 app.use('/', indexRouter);
