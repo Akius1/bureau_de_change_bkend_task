@@ -3,7 +3,7 @@
 const createError = require('http-errors');
 const express = require('express');
 
-const keys = require('./config/keys');
+const keys = require('../config/keys');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
@@ -11,13 +11,13 @@ const stripe = require('stripe')(keys.stripeSecretKey);
 const bodyParser =  require('body-parser');
 const exphbs = require('express-handlebars');
 
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
-const chargeRouter = require('./routes/charge');
-const loginRouter = require('./routes/login');
- const registerRouter = require('./routes/register')
+const indexRouter = require('../src/routes/index');
+const usersRouter = require('../src/routes/users');
+const chargeRouter = require('../src/routes/charge');
+const loginRouter = require('../src/routes/login');
+ const registerRouter = require('../src/routes/register')
 
-var app = express();
+const app = express();
 
 
 ///andlebars Middleware
@@ -47,6 +47,25 @@ app.use('/users', usersRouter);
 app.use('/charge', chargeRouter);
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);
+
+
+//Connect to mongodb
+async function connectTocluster() {
+  await mongoose
+    .connect(process.env.MONGO_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useFindAndModify: false,
+    })
+    .then((res) => {
+      console.log("connected");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
+
+connectTocluster();
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

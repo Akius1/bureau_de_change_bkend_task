@@ -1,5 +1,5 @@
 var express = require('express');
-const keys = require('../config/keys');
+const keys = require('../../config/keys');
 const stripe = require('stripe')(keys.stripePublishableKey);
 var router = express.Router();
 
