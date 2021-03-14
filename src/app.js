@@ -1,5 +1,4 @@
 
-
 const createError = require('http-errors');
 const express = require('express');
 
@@ -10,6 +9,8 @@ const logger = require('morgan');
 const stripe = require('stripe')(keys.stripeSecretKey);
 const bodyParser =  require('body-parser');
 const exphbs = require('express-handlebars');
+const dotenv = require("dotenv");
+const mongoose = require('mongoose');
 
 const indexRouter = require('../src/routes/index');
 const usersRouter = require('../src/routes/users');
@@ -18,6 +19,8 @@ const loginRouter = require('../src/routes/login');
  const registerRouter = require('../src/routes/register')
 
 const app = express();
+
+dotenv.config();
 
 
 ///andlebars Middleware
